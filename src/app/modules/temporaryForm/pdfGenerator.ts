@@ -382,13 +382,13 @@ export const generateCbyracPdf = catchAsync(
       currentY += 30;
 
       // ============ EDUCATION ============
-      if (formData.generalInfo.education) {
+      if (formData.generalInfo.education && formData.generalInfo.education.length > 0) {
         currentY = addSectionHeader('EDUCATION', currentY);
-        const edu = formData.generalInfo.education;
+        const edu = formData.generalInfo.education[0];
 
         currentY = addField(
           'School Name',
-          edu.schoolName || '',
+          edu.name || '',
           50,
           currentY,
           250

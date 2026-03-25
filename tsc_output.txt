@@ -1,0 +1,1 @@
+src/app/modules/temporaryForm/pdfGenerator.ts(391,15): error TS2339: Property 'schoolName' does not exist on type 'IEducationInfo'.

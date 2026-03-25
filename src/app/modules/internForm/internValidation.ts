@@ -1,10 +1,7 @@
 // validation/onboardingValidation.ts
 import { z } from 'zod';
 import { 
-  Citizenship, 
-  W4Status, 
-  I9Status, 
-  BankAccountType
+  ICitizenship 
 } from './interface';
 
 // GeneralInfo Schema
@@ -45,7 +42,7 @@ const GeneralInfoSchema = z.object({
 // DirectDepositInfo Schema
 const DirectDepositInfoSchema = z.object({
   bankName: z.string().optional(),
-  accountType: z.nativeEnum(BankAccountType).optional(),
+  accountType: z.enum(['Checking', 'Savings']).optional(),
   depositAmount: z.number().optional(),
   depositPercentage: z.number().optional(),
   routingNumber: z.string().optional(),
@@ -72,7 +69,7 @@ const I9InfoSchema = z.object({
   ssn: z.string().optional(),
   email: z.string().email().optional(),
   phone: z.string().optional(),
-  status: z.nativeEnum(I9Status).optional(),
+  status: z.string().optional(),
   uscisNumber: z.string().optional(),
   admissionNumber: z.string().optional(),
   foreignPassportNumber: z.string().optional(),
@@ -87,7 +84,7 @@ const W4InfoSchema = z.object({
   lastName: z.string().optional(),
   ssn: z.string().optional(),
   address: z.string().optional(),
-  filingStatus: z.nativeEnum(W4Status).optional(),
+  filingStatus: z.string().optional(),
   acceptedTerms: z.boolean().optional(),
   childDependents: z.number().optional(),
   childTaxCreditAmount: z.number().optional(),
@@ -105,7 +102,7 @@ const W4InfoSchema = z.object({
 
 // DocumentInfo Schema
 const DocumentInfoSchema = z.object({
-  citizenshipStatus: z.nativeEnum(Citizenship).optional(),
+  citizenshipStatus: z.nativeEnum(ICitizenship).optional(),
   idDocuments: z.array(z.any()).optional(),
   sscCard: z.array(z.any()).optional(),
   residentCard: z.array(z.any()).optional(),

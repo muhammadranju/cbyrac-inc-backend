@@ -6,7 +6,6 @@ import { WeeklyDetailsService } from './timeSheet.service';
 import {
   getAllUploadedFiles,
   IFolderName,
-  parseNestedFormData,
 } from '../../../shared/getFilePath';
 import { IWeeklyTimeSheet } from './timeSheet.interface';
 

@@ -78,7 +78,7 @@ const updateAdminForm = catchAsync(
 
       // Handle file upload (if provided)
       if (req.files) {
-        image = getSingleFilePath(req.files, 'image');
+        image = getSingleFilePath(req.files as any, 'image');
       }
 
       // Prepare payload
