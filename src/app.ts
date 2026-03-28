@@ -14,10 +14,16 @@ app.use(Morgan.errorHandler);
 //body parser
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://cbyrac-inc-rose.vercel.app'],
+    origin: [
+      'http://localhost:5173',
+      'https://cbyrac-inc-rose.vercel.app',
+      'https://dashboard.cbyracinc.com',
+      'https://cbyracinc.com',
+      'https://www.cbyracinc.com',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,7 +42,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send(
     `<h1 style="text-align:center; color:#173616; font-family:Verdana;">Beep-beep! The server is alive and kicking.</h1>
     <p style="text-align:center; color:#173616; font-family:Verdana;">${date}</p>
-    `
+    `,
   );
 });
 
